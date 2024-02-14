@@ -1,0 +1,26 @@
+@import '@fortawesome/fontawesome-free/css/all.css';
+
+button.navbar-toggler{
+  border: 1px solid #327BFF;
+  .navbar-toggler-icon {
+    background-image: none;
+  }
+  i.fa-solid{
+    color: #327BFF;
+  }
+}
+
+.navbar-nav{
+  gap: 50px;
+
+  a.nav-link.active{
+    color: #327BFF;
+    font-size: 16px;
+  }
+
+  .nav-link{
+    color: #699AF2;
+    font-size: 16px;
+  }
+}
+
