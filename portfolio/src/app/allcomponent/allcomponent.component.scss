@@ -1,0 +1,34 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.main {
+  animation:zoomIn;
+  animation-duration: 2s;
+}
+
+.typewriter h1 {
+  color: white;
+  overflow: hidden;
+  border-right: 3.6px solid #699AF2;
+  white-space: nowrap;
+  margin: 0 auto;
+  letter-spacing: 3.6px;
+  animation:
+    typing 3.5s steps(40, end),
+    blink-caret .75s step-end infinite;
+}
+
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: #699AF2; }
+}
+

@@ -1,30 +1,37 @@
-.container{
+.container {
   margin-top: 10%;
 }
 
-.left-side{
+.left-side {
 
   .card-title {
     color: #699AF2;
   }
 
-  .card-text{
+  .card-text {
     color: #699AF2;
+  }
+
+  .icons {
+    display: flex;
+    gap: 30px;
+  }
+
+  button.btn.btn-primary {
+    max-width: 300px;
+    width: 100%;
+    background: #699AF2;
+    border-radius: 10px;
+    outline: none;
+    border: none;
+    box-shadow: none;
+    color: black;
   }
 }
 
-button.btn.btn-primary{
-  max-width: 250px;
-  width: 100%;
-  background: #699AF2;
-  border-radius: 10px;
-  outline: none;
-  border: none;
-  box-shadow: none;
-  color: black;
-}
 
 .img {
   display: flex;
   justify-content: center;
+  color: white;
 }

@@ -1,17 +1,17 @@
 import {Component, OnInit} from '@angular/core';
-import {Router, RouterLinkActive, RouterModule, RouterOutlet} from '@angular/router';
-import {HeaderComponent} from "./header/header.component";
+import {HeaderComponent} from "../header/header.component";
+import {HomeComponent} from "../home/home.component";
+import {RouterModule, RouterOutlet} from "@angular/router";
 import {FontAwesomeModule} from "@fortawesome/angular-fontawesome";
-import {HomeComponent} from "./home/home.component";
 
 @Component({
-  selector: 'app-root',
+  selector: 'app-allcomponent',
   standalone: true,
   imports: [RouterModule,RouterOutlet, HeaderComponent, FontAwesomeModule, HomeComponent],
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.scss'
+  templateUrl: './allcomponent.component.html',
+  styleUrl: './allcomponent.component.scss'
 })
-export class AppComponent implements OnInit{
+export class AllcomponentComponent implements OnInit{
   title = 'portfolio';
   showIntro = true;
 
