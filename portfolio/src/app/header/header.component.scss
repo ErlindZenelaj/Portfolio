@@ -2,7 +2,6 @@
 
 button.navbar-toggler{
   border: 1px solid #327BFF;
-
   .navbar-toggler-icon {
     background-image: none;
   }
@@ -11,9 +10,17 @@ button.navbar-toggler{
   }
 }
 
+
+h5.offcanvas-title{
+  color: #699AF2;
+}
+
+i.fa-xmark{
+  color: white;
+}
+
 .navbar-nav{
   gap: 50px;
-
   a.nav-link.active{
     color: #327BFF;
     font-size: 16px;

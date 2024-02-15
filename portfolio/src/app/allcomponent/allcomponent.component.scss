@@ -32,3 +32,8 @@
   50% { border-color: #699AF2; }
 }
 
+@media(max-width: 567px){
+  .typewriter h1{
+    font-size: 18px;
+  }
+}
