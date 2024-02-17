@@ -1,32 +1,42 @@
 @import '@fortawesome/fontawesome-free/css/all.css';
 
-button.navbar-toggler{
+button.navbar-toggler {
   border: 1px solid #327BFF;
+
   .navbar-toggler-icon {
     background-image: none;
   }
-  i.fa-solid{
+
+  i.fa-solid {
     color: #327BFF;
   }
 }
 
+.offcanvas {
+  .offcanvas-header {
+    margin-top: 17px;
+  }
 
-h5.offcanvas-title{
-  color: #699AF2;
+  h5.offcanvas-title {
+    color: #699AF2;
+  }
+
+  i.fa-xmark {
+    color: white;
+    padding-right: 10px;
+  }
+
 }
 
-i.fa-xmark{
-  color: white;
-}
-
-.navbar-nav{
+.navbar-nav {
   gap: 50px;
-  a.nav-link.active{
+
+  a.nav-link.active {
     color: #327BFF;
     font-size: 16px;
   }
 
-  .nav-link{
+  .nav-link {
     color: #699AF2;
     font-size: 16px;
   }
