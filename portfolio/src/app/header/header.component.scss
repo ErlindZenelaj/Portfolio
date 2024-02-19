@@ -1,13 +1,9 @@
 @import '@fortawesome/fontawesome-free/css/all.css';
 
 nav{
-  background-color: #071d2e;
+  background-color: #0d0c1d;
 }
 
-.navbar-expand-lg{
-  background-color: #071d2e;
-
-}
 
 button.navbar-toggler {
   border: 1px solid #327BFF;
@@ -22,7 +18,7 @@ button.navbar-toggler {
 }
 
 .offcanvas {
-  background-color: #071d2e;
+  background-color: #0d0c1d;
 
   .offcanvas-header {
     margin-top: 17px;
@@ -40,7 +36,7 @@ button.navbar-toggler {
 }
 
 .navbar-nav {
-  background-color: #071d2e;
+  background-color: #0d0c1d;
   gap: 50px;
 
   a.nav-link.active {
