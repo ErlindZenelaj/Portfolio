@@ -1,3 +1,4 @@
+@import "../../styles/index";
 .container {
   display: flex;
   justify-content: center;
@@ -5,9 +6,9 @@
   height: 100vh;
 
      h1 {
-    color: #699AF2;
+    color: $primary-color;
     overflow: hidden;
-    border-right: 3.6px solid #699AF2;
+    border-right: 3.6px solid $primary-color;
     white-space: nowrap;
     margin: 0 auto;
     letter-spacing: 3.6px;
@@ -31,7 +32,7 @@
     border-color: transparent
   }
   50% {
-    border-color: #699AF2;
+    border-color: $primary-color;
   }
 }
 

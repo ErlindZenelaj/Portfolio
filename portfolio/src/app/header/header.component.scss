@@ -1,4 +1,6 @@
 @import '@fortawesome/fontawesome-free/css/all.css';
+@import "../../styles/index";
+
 
 nav{
   background-color: #0d0c1d;
@@ -25,7 +27,7 @@ button.navbar-toggler {
   }
 
   h5.offcanvas-title {
-    color: #699AF2;
+    color: $primary-color;
   }
 
   i.fa-xmark {
