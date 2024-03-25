@@ -3,17 +3,18 @@
   justify-content: center;
   align-items: center;
   height: 100vh;
-}
 
-.typewriter h1 {
-  color: white;
-  overflow: hidden;
-  border-right: 3.6px solid #699AF2;
-  white-space: nowrap;
-  margin: 0 auto;
-  letter-spacing: 3.6px;
-  animation: typing 3.5s steps(40, end),
-  blink-caret .75s step-end infinite;
+     h1 {
+    color: #699AF2;
+    overflow: hidden;
+    border-right: 3.6px solid #699AF2;
+    white-space: nowrap;
+    margin: 0 auto;
+    letter-spacing: 3.6px;
+    animation: typing 3.5s steps(40, end),
+    blink-caret .75s step-end infinite;
+  }
+
 }
 
 @keyframes typing {
