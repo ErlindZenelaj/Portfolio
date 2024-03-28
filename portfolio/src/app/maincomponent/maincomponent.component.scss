@@ -1,0 +1,43 @@
+@import "../../styles/index";
+
+.start-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 70vh;
+
+  .typewriter {
+    h1 {
+      color: $primary-color;
+      overflow: hidden;
+      white-space: nowrap;
+      margin: 0 auto;
+      letter-spacing: 3.6px;
+      text-transform: uppercase;
+    }
+    p {
+      color: $primary-color;
+      overflow: hidden;
+      border-right: 3.6px solid $primary-color;
+      white-space: nowrap;
+      margin: 0 auto;
+      letter-spacing: 3.6px;
+      animation: typing 3s steps(30, end) infinite;
+      max-width: 240px;
+    }
+    .second-paragraph{
+      max-width: 200px;
+    }
+  }
+}
+
+
+@keyframes typing {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 100%;
+  }
+}
+

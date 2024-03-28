@@ -3,7 +3,7 @@
 
 
 nav{
-  background-color: #0d0c1d;
+  background-color: #fff;
 }
 
 
@@ -38,7 +38,7 @@ button.navbar-toggler {
 }
 
 .navbar-nav {
-  background-color: #0d0c1d;
+  background-color: #fff;
   gap: 50px;
 
   a.nav-link.active {
@@ -47,7 +47,7 @@ button.navbar-toggler {
   }
 
   .nav-link {
-    color: white;
+    color: #327BFF;
     font-size: 16px;
   }
 }
