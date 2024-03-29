@@ -7,5 +7,4 @@ export const routes: Routes = [
   { path: '', title: '', component: MaincomponentComponent},
   { path: '', title: '', component: MaincomponentComponent},
   { path: 'education', title: '', component: EducationComponent},
-
 ];

@@ -1,7 +1,7 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, ElementRef, OnInit} from '@angular/core';
 import {HeaderComponent} from "../header/header.component";
 import {CommonModule} from "@angular/common";
-import {RouterLink} from "@angular/router";
+import {Router, RouterLink} from "@angular/router";
 
 @Component({
   selector: 'app-maincomponent',
@@ -9,7 +9,7 @@ import {RouterLink} from "@angular/router";
   imports: [
     HeaderComponent,
     CommonModule,
-    RouterLink
+    RouterLink,
   ],
   templateUrl: './maincomponent.component.html',
   styleUrl: './maincomponent.component.scss'
@@ -17,6 +17,9 @@ import {RouterLink} from "@angular/router";
 export class MaincomponentComponent implements OnInit{
   title = 'portfolio';
   showMessage = true;
+
+
+  constructor(private router: Router, private elementRef: ElementRef) {}
 
   ngOnInit() {
     setInterval(() => {
