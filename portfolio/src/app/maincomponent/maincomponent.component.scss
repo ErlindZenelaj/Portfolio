@@ -1,10 +1,7 @@
 @import "../../styles/index";
 
 .start-page {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 70vh;
+  margin: 350px auto;
 
   .typewriter {
     h1 {
@@ -14,7 +11,12 @@
       margin: 0 auto;
       letter-spacing: 3.6px;
       text-transform: uppercase;
+      text-align: center;
+      @include mobile-view{
+        font-size: 24px;
+      }
     }
+
     p {
       color: $primary-color;
       overflow: hidden;
@@ -22,18 +24,21 @@
       white-space: nowrap;
       margin: 0 auto;
       letter-spacing: 3.6px;
-      animation: typing 3s steps(30, end) infinite;
+      animation: typing 3.5s steps(50, end) infinite;
       max-width: 240px;
     }
-    .second-paragraph{
+
+    .second-paragraph {
       max-width: 200px;
     }
   }
 }
-.mouse{
+
+.mouse {
   display: flex;
   justify-content: center;
-  .animate__shakeY{
+
+  .animate__shakeY {
     animation-iteration-count: infinite;
     animation-duration: 2s;
   }
@@ -48,19 +53,57 @@
   }
 }
 
-.home{
+.home {
   margin-top: 10%;
   max-width: 1100px;
 
+  .about-text {
+    display: inline-block;
+    position: relative;
+    z-index: 2;
+    text-transform: uppercase;
+  }
 
-  .persona-info{
+  .about-text::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: -1;
+    border-bottom: 8px solid yellow;
+  }
+
+  .personal-img{
+    @include mobile-view{
+      display: flex;
+      justify-content: center;
+    }
+  }
+  .text{
+    p{
+      @include mobile-view{
+        text-align: center;
+      }
+    }
+  }
+
+  .persona-info {
+    max-width: 960px;
+    width: 100%;
     margin-top: 30px;
-    .info{
+
+    .info {
       margin-top: 10px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      span{
+      @include mobile-view{
+        align-items: start;
+        flex-direction: column;
+      }
+
+      span {
         color: $primary-color;
       }
     }

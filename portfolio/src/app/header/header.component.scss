@@ -20,7 +20,7 @@ button.navbar-toggler {
 }
 
 .offcanvas {
-  background-color: #0d0c1d;
+  background-color: #ffffff;
 
   .offcanvas-header {
     margin-top: 17px;
@@ -31,7 +31,7 @@ button.navbar-toggler {
   }
 
   i.fa-xmark {
-    color: white;
+    color: $primary-color;
     padding-right: 10px;
   }
 
