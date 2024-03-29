@@ -2,11 +2,12 @@
 <div class="container start-page">
   <div class="typewriter">
     <h1>I'm Erlind Zenelaj</h1>
-    @if (showMessage) {
-      <p>FrontEnd Developer</p>
-    }
-    @if (!showMessage) {
-      <p class="second-paragraph">Based On Kosovo</p>
-    }
+    <p *ngIf="showMessage">FrontEnd Developer</p>
+    <p *ngIf="!showMessage" class="second-paragraph">Based On Kosovo</p>
   </div>
+</div>
+<div class="container mouse">
+  <a routerLink="/home">
+    <img class="animate__animated animate__shakeY" src="assets/img/IconMouse96.png" alt="" width="50">
+  </a>
 </div>

@@ -30,7 +30,14 @@
     }
   }
 }
-
+.mouse{
+  display: flex;
+  justify-content: center;
+  .animate__shakeY{
+    animation-iteration-count: infinite;
+    animation-duration: 2s;
+  }
+}
 
 @keyframes typing {
   0% {
