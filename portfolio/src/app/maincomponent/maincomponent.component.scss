@@ -24,7 +24,7 @@
       white-space: nowrap;
       margin: 0 auto;
       letter-spacing: 3.6px;
-      animation: typing 3.5s steps(50, end) infinite;
+      animation: typing 5s steps(50, end) infinite;
       max-width: 240px;
     }
 
@@ -56,28 +56,21 @@
 .home {
   margin-top: 10%;
   max-width: 1100px;
-
-  .about-text {
-    display: inline-block;
-    position: relative;
-    z-index: 2;
-    text-transform: uppercase;
-  }
-
-  .about-text::after {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    z-index: -1;
-    border-bottom: 8px solid yellow;
-  }
-
   .personal-img{
-    @include mobile-view{
-      display: flex;
-      justify-content: center;
+    margin: 0 auto;
+    margin-top: 20px;
+
+    img {
+      shape-outside: circle(50%);
+      border-radius: 50%;
+      float: left;
+      @include mobile-view {
+
+      }
+    }
+
+    p {
+      width: 100%;
     }
   }
   .text{
@@ -91,7 +84,7 @@
   .persona-info {
     max-width: 960px;
     width: 100%;
-    margin-top: 30px;
+    margin-top: 50px;
 
     .info {
       margin-top: 10px;
@@ -107,7 +100,67 @@
         color: $primary-color;
       }
     }
-  }
 
+    .first {
+      padding-right: 70px;
+    }
+
+    .second {
+      padding-right: 88px;
+    }
+  }
 }
 
+.slider {
+  margin-top: 8%;
+  max-width: 1100px;
+
+  .logos {
+    overflow: hidden;
+    padding-top: 30px;
+    background: white;
+    white-space: nowrap;
+    position: relative;
+    @include tablet-view {
+      pointer-events: none;
+    }
+
+    @include mobile-view {
+      pointer-events: none;
+    }
+
+    .logos-slide {
+      display: inline-block;
+      animation: 10s slide infinite linear;
+      padding: 0;
+      @include mobile-view {
+        animation: 5s slide infinite linear;
+      }
+    }
+
+    .slide {
+      display: inline-block;
+      cursor: pointer;
+
+      img {
+        width: 120px;
+        margin-right: 80px;
+      }
+    }
+  }
+
+  .logos:hover .logos-slide {
+    animation-play-state: paused;
+  }
+
+  @keyframes slide {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-100%);
+    }
+  }
+
+
+}
