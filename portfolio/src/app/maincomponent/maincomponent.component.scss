@@ -1,60 +1,75 @@
 @import "../../styles/index";
 
-.start-page {
-  margin: 350px auto;
+.bg-image{
+  background-image: linear-gradient(to right, rgba(255,255,255,0.5), rgba(255,255,255,0)), url('../../assets/img/mainphoto.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top center;
+  z-index: 0;
+  max-height: 1200px;
+  height: 1200px;
 
-  .typewriter {
-    h1 {
-      color: $primary-color;
-      overflow: hidden;
-      white-space: nowrap;
-      margin: 0 auto;
-      letter-spacing: 3.6px;
-      text-transform: uppercase;
-      text-align: center;
-      @include mobile-view{
-        font-size: 24px;
+  .start-page {
+    position: relative;
+    top: 220px;
+    text-align: center;
+
+    .typewriter {
+      h2 {
+        color: $white-color;
+        overflow: hidden;
+        border-right: 3.6px solid $third-color;
+        white-space: nowrap;
+        margin: 0 auto;
+        letter-spacing: 3.6px;
+        animation: typing 8s steps(100, end) infinite;
+        max-width: 340px;
+
+        @include mobile-view{
+          max-width: 300px;
+        }
+      }
+
+      .second-paragraph {
+        max-width: 300px;
+        @include mobile-view{
+          max-width: 300px;
+        }
       }
     }
+  }
 
-    p {
-      color: $primary-color;
-      overflow: hidden;
-      border-right: 3.6px solid $primary-color;
-      white-space: nowrap;
-      margin: 0 auto;
-      letter-spacing: 3.6px;
-      animation: typing 5s steps(50, end) infinite;
-      max-width: 240px;
+  .mouse {
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    bottom: 50px;
+    left: 250px;
+    align-items: center;
+    @include mobile-view{
+      max-width: 100px;
+      position: absolute;
+      left: 150px;
     }
-
-    .second-paragraph {
-      max-width: 200px;
+    .animate__shakeY {
+      animation-iteration-count: infinite;
+      animation-duration: 2s;
     }
-  }
-}
-
-.mouse {
-  display: flex;
-  justify-content: center;
-
-  .animate__shakeY {
-    animation-iteration-count: infinite;
-    animation-duration: 2s;
-  }
-}
-
-@keyframes typing {
-  0% {
-    width: 0;
-  }
-  100% {
-    width: 100%;
-  }
+    img {
+      filter: brightness(0) saturate(100%) invert(100%) sepia(93%) saturate(0%) hue-rotate(201deg) brightness(106%) contrast(106%);    }
+    }
+    @keyframes typing {
+      0% {
+        width: 0;
+      }
+      100% {
+        width: 100%;
+      }
+    }
 }
 
 .home {
-  margin-top: 10%;
+  margin-top: 120px;
   max-width: 1100px;
   .personal-img{
     margin: 0 auto;
@@ -65,12 +80,16 @@
       border-radius: 50%;
       float: left;
       @include mobile-view {
-
       }
+    }
+    .animate__backInLeft,
+    .animate__backInRight{
+      animation-duration: 1s;
     }
 
     p {
-      width: 100%;
+      width: 85%;
+      color: $third-color;
     }
   }
   .text{
@@ -81,33 +100,37 @@
     }
   }
 
-  .persona-info {
-    max-width: 960px;
+  .personal-info {
+    max-width: 1060px;
     width: 100%;
-    margin-top: 50px;
+    margin: 40px 0;
 
     .info {
-      margin-top: 10px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
+      gap: 20px;
       @include mobile-view{
         align-items: start;
         flex-direction: column;
       }
+      h3{
+        animation: typing 5s steps(50, end) infinite;
+        overflow: hidden;
+        white-space: nowrap;
+        margin: 0 auto;
+        letter-spacing: 2.5px;
+        max-width: 400px;
+        color: $secondary-color;
+        @include mobile-view{
+          margin: 0;
+          letter-spacing: 2.5px;
+        }
+      }
 
       span {
-        color: $primary-color;
+        color: $third-color;
       }
     }
 
-    .first {
-      padding-right: 70px;
-    }
 
-    .second {
-      padding-right: 88px;
-    }
   }
 }
 
@@ -118,7 +141,7 @@
   .logos {
     overflow: hidden;
     padding-top: 30px;
-    background: white;
+    background: transparent;
     white-space: nowrap;
     position: relative;
     @include tablet-view {
@@ -131,10 +154,10 @@
 
     .logos-slide {
       display: inline-block;
-      animation: 10s slide infinite linear;
+      animation: 15s slide infinite linear;
       padding: 0;
       @include mobile-view {
-        animation: 5s slide infinite linear;
+        animation: 15s slide infinite linear;
       }
     }
 
@@ -143,10 +166,11 @@
       cursor: pointer;
 
       img {
-        width: 120px;
-        margin-right: 80px;
+        width: 80px;
+        margin-right: 90px;
       }
     }
+
   }
 
   .logos:hover .logos-slide {

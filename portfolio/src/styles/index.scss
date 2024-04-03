@@ -10,6 +10,7 @@
   position: relative;
   z-index: 2;
   text-transform: uppercase;
+  color: $white-color;
 }
 
 .about-text::after {
@@ -19,7 +20,7 @@
   left: 0;
   width: 100%;
   z-index: -1;
-  border-bottom: 8px solid yellow;
+  border-bottom: 8px solid gray;
 }
 
 h1 {

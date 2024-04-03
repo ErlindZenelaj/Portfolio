@@ -1,59 +1,63 @@
-<app-header></app-header>
-<div class="container start-page">
-  <div class="typewriter">
-    <h1>I'm Erlind Zenelaj</h1>
-    <p *ngIf="showMessage">FrontEnd Developer</p>
-    <p *ngIf="!showMessage" class="second-paragraph">Based On Kosovo</p>
-  </div>
-</div>
-
-<div class="container mouse">
-  <a href="#home">
-    <img class="animate__animated animate__shakeY" src="assets/img/IconMouse96.png" alt="" width="50">
-  </a>
-</div>
-
-<div class="container home" id="home">
-  <div class="about-text">
-    <span>About Me:</span>
-  </div>
-  <div class="col-md-10 col-12 personal-img">
-    <img alt="" src="assets/img/lindi.png" width="190">
-    <p>
-      I am a driven and enthusiastic intern fascinated by the endless possibilities of programming and technology.
-      Currently immersed in [SunnyHill - Tech], I am eager to bridge the gap between theory and
-      practice through hands-on experience. Throughout my academic journey, I've cultivated a strong foundation in
-      various programming languages and technologies, and I'm eager to continue my journey of exploration and growth
-      in the professional realm.
-    </p>
+<div class="bg-image">
+  <app-header></app-header>
+  <div class="container start-page">
+    <div class="typewriter">
+      @if(showMessage){
+        <h2>FrontEnd Developer</h2>
+      } @else if (!showMessage){
+        <h2 class="second-paragraph">Based On Kosovo</h2>
+      }
     </div>
-  <div class="col-md-12 col-12">
-      <div class="persona-info">
-        <div class="info">
-          <p><span>Name: </span> Erlind Zenelaj</p>
-          <p class="first"><span>Age:</span> 21 Years</p>
-          <p class="second"><span>Job: </span>Web Developer</p>
-        </div>
-        <div class="info">
-          <p><span>Citizenship:</span> Kosovo</p>
-          <p><span>Residence:</span> Prishtina</p>
-          <p><span>E-mail:</span> erlind880&#64;gmail.com</p>
+  </div>
+
+  <div class="container mouse" (click)="navigateToHome()">
+    <img class="animate__animated animate__shakeY filtered-mouse" src="assets/img/mouse-wireless-pc-svgrepo-com.svg" alt="" width="50">
+  </div>
+
+</div>
+
+  <div class="container home" id="home">
+    <div class="about-text">
+      <span>About Me:</span>
+    </div>
+    <div class="row">
+      <div class="col-md-6 col-12 personal-img">
+        <img [ngClass]="{'animate__animated animate__backInLeft': isAnimating}" alt="Lindi" src="assets/img/lindi.png" width="190">
+        <p [ngClass]="{'animate__animated animate__backInRight': isAnimating}">
+          I am a driven and enthusiastic intern fascinated by the endless possibilities of programming and technology.
+          Currently immersed in [SunnyHill - Tech], I am eager to bridge the gap between theory and
+          practice through hands-on experience. Throughout my academic journey, I've cultivated a strong foundation in
+          various programming languages and technologies, and I'm eager to continue my journey of exploration and growth
+          in the professional realm.
+        </p>
+      </div>
+      <div class="col-md-6 col-12">
+        <div class="personal-info">
+          <div class="info" [ngClass]="{'animate__animated animate__backInRight': isAnimating}">
+            <h3><span>Job: </span>Web Developer</h3>
+            <h3><span>Citizenship:</span> Kosovo</h3>
+            <h3><span>Residence:</span> Prishtina</h3>
+            <h3><span>E-mail:</span> erlind880&#64;gmail.com</h3>
+            <h3><span>Number:</span> +38343726774</h3>
+
+          </div>
         </div>
       </div>
     </div>
-</div>
-
-<div class="container slider">
-  <div class="about-text">
-    <span>Technology:</span>
   </div>
-  <div class="logos">
-    <div class="logos-slide">
-      <div class="slide svg-partner">
-        @for (icons of iconss; track icons) {
-          <img [src]="icons" alt="">
-        }
+
+  <div class="container slider">
+    <div class="about-text">
+      <span>Technology's:</span>
+    </div>
+    <div class="logos">
+      <div class="logos-slide">
+        <div class="slide svg-partner">
+          @for (icons of iconss; track icons) {
+            <img [src]="icons" alt="">
+          }
+        </div>
       </div>
     </div>
   </div>
-</div>
+

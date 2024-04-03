@@ -2,25 +2,37 @@
 @import "../../styles/index";
 
 
+
+.container{
+  max-width: 1100px;
+
+  .navbar-brand{
+    img{
+      border-radius: 0;
+    }
+  }
+}
+
+
 nav{
-  background-color: #fff;
+  background-color: transparent;
 }
 
 
 button.navbar-toggler {
-  border: 1px solid #327BFF;
+  border: 1px solid $primary-color;
 
   .navbar-toggler-icon {
     background-image: none;
   }
 
   i.fa-solid {
-    color: #327BFF;
+    color: $primary-color;
   }
 }
 
 .offcanvas {
-  background-color: #ffffff;
+  background-color: $third-color;
 
   .offcanvas-header {
     margin-top: 17px;
@@ -38,16 +50,16 @@ button.navbar-toggler {
 }
 
 .navbar-nav {
-  background-color: #fff;
+  background-color: transparent;
   gap: 50px;
 
   a.nav-link.active {
-    color: #327BFF;
+    color: $white-color;
     font-size: 16px;
   }
 
   .nav-link {
-    color: #327BFF;
+    color: $white-color;
     font-size: 16px;
   }
 }

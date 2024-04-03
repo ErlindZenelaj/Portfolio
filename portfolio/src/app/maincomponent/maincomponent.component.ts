@@ -37,6 +37,20 @@ export class MaincomponentComponent implements OnInit , AfterViewInit{
     this.elementRef.nativeElement.querySelector('.logos').appendChild(copy);
   }
 
+  isAnimating: boolean = false;
+
+  navigateToHome() {
+    const homeSection = document.getElementById('home');
+    if (homeSection) {
+      homeSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+    this.isAnimating = true;
+    setTimeout(() => {
+      this.isAnimating = false;
+    }, 1000);
+  }
+
+
   iconss: string[] = [
     'assets/img/html.png',
     'assets/img/css.png',
