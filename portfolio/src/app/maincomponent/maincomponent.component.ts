@@ -25,6 +25,13 @@ export class MaincomponentComponent implements OnInit , AfterViewInit{
   constructor(private router: Router, private elementRef: ElementRef) {
   }
 
+  cards = [
+    { icon: 'assets/img/speed.svg', title: 'Fast', description: 'Fast load times and lag free interaction, my highest priority.' },
+    { icon: 'assets/img/pc&laptop.svg', title: 'Responsive', description: 'My layouts will work on any device, big or small.' },
+    { icon: 'assets/img/lamp.svg', title: 'Intuitive', description: 'Strong preference for easy to use, intuitive UX/UI.' },
+    { icon: 'assets/img/rocket.svg', title: 'Dynamic', description: 'Websites don\'t have to be static, I love making pages come to life.' }
+  ];
+
   ngOnInit() {
     setInterval(() => {
       this.showMessage = !this.showMessage;

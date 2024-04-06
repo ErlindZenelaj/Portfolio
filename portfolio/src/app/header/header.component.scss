@@ -50,11 +50,15 @@ button.navbar-toggler {
   a.nav-link.active {
     color: $white-color;
     font-size: 16px;
+    text-shadow: 1px 1px 2px black;
+
   }
 
   .nav-link {
     color: $white-color;
     font-size: 16px;
+    text-shadow: 1px 1px 2px black;
+
   }
 }
 

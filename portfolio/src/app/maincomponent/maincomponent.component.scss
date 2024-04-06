@@ -8,15 +8,11 @@
   z-index: 0;
   max-height: 1050px;
   height: 1050px;
-  @include tablet-view {
-    //background-image: url('../../assets/img/mainimagemobile.png');
-    max-height: 100%;
-    width: 100%;
-  }
+
 
   .start-page {
     position: relative;
-    top: 35%;
+    top: 20%;
     text-align: center;
 
     .typewriter {
@@ -27,18 +23,19 @@
         white-space: nowrap;
         margin: 0 auto;
         letter-spacing: 3.6px;
-        animation: typing 8s steps(100, end) infinite;
+        animation: typing 5s steps(50, end) infinite;
         max-width: 340px;
-
+        text-shadow: 1px 1px 2px black;
         @include mobile-view{
-          max-width: 280px;
+          max-width: 500px;
+          animation: typing 2.5s steps(20, end) infinite;
+
         }
       }
-
       .second-paragraph {
-        max-width: 300px;
+        max-width: 280px;
         @include mobile-view{
-          max-width: 300px;
+          max-width: 280px;
         }
       }
     }
