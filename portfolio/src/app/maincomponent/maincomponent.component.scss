@@ -1,17 +1,22 @@
 @import "../../styles/index";
 
 .bg-image{
-  background-image: linear-gradient(to right, rgba(255,255,255,0.5), rgba(255,255,255,0)), url('../../assets/img/mainphoto.png');
+  background-image: url('../../assets/img/Foto3.png');
   background-size: cover;
   background-repeat: no-repeat;
   background-position: top center;
   z-index: 0;
-  max-height: 1200px;
-  height: 1200px;
+  max-height: 1050px;
+  height: 1050px;
+  @include tablet-view {
+    //background-image: url('../../assets/img/mainimagemobile.png');
+    max-height: 100%;
+    width: 100%;
+  }
 
   .start-page {
     position: relative;
-    top: 220px;
+    top: 35%;
     text-align: center;
 
     .typewriter {
@@ -26,7 +31,7 @@
         max-width: 340px;
 
         @include mobile-view{
-          max-width: 300px;
+          max-width: 280px;
         }
       }
 
@@ -39,17 +44,39 @@
     }
   }
 
+  .logo {
+    position: absolute;
+    top: 44%;
+    right: 0;
+    margin-top: 10px;
+    margin-right: 10px;
+
+    .icons {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+      margin-right: 20px;
+
+      i {
+        font-size: 40px;
+        color: $white-color;
+      }
+    }
+  }
+
   .mouse {
+    max-width: 150px;
     display: flex;
     justify-content: center;
     position: absolute;
-    bottom: 50px;
-    left: 250px;
+    bottom: 5%;
+    left: 46%;
     align-items: center;
     @include mobile-view{
       max-width: 100px;
       position: absolute;
-      left: 150px;
+      left: 40%;
     }
     .animate__shakeY {
       animation-iteration-count: infinite;
@@ -69,73 +96,134 @@
 }
 
 .home {
-  margin-top: 120px;
+  margin-top: 50px;
   max-width: 1100px;
-  .personal-img{
+
+  .reverse {
+    @include mobile-view {
+      display: flex;
+      flex-direction: column-reverse;
+      margin-top: 10px;
+    }
+  }
+
+  .personal-text {
     margin: 0 auto;
     margin-top: 20px;
 
-    img {
-      shape-outside: circle(50%);
-      border-radius: 50%;
-      float: left;
-      @include mobile-view {
-      }
-    }
-    .animate__backInLeft,
-    .animate__backInRight{
-      animation-duration: 1s;
-    }
-
     p {
-      width: 85%;
-      color: $third-color;
-    }
-  }
-  .text{
-    p{
-      @include mobile-view{
-        text-align: center;
-      }
+      width: 100%;
+      color: $secondary-color;
     }
   }
 
-  .personal-info {
-    max-width: 1060px;
-    width: 100%;
-    margin: 40px 0;
+  .info {
+    gap: 15px;
+    display: flex;
+    flex-direction: column;
+    @include mobile-view {
+      align-items: start;
+      flex-direction: column;
+    }
 
-    .info {
-      gap: 20px;
-      @include mobile-view{
-        align-items: start;
-        flex-direction: column;
-      }
-      h3{
-        animation: typing 5s steps(50, end) infinite;
-        overflow: hidden;
-        white-space: nowrap;
-        margin: 0 auto;
-        letter-spacing: 2.5px;
-        max-width: 400px;
-        color: $secondary-color;
-        @include mobile-view{
-          margin: 0;
-          letter-spacing: 2.5px;
-        }
-      }
-
-      span {
-        color: $third-color;
+    h3 {
+      animation: typing 5s steps(50, end) infinite;
+      overflow: hidden;
+      white-space: nowrap;
+      letter-spacing: 2.5px;
+      max-width: 400px;
+      color: $secondary-color;
+      @include mobile-view {
+        margin: 0;
+        letter-spacing: 1.3px;
       }
     }
 
+    span {
+      color: $primary-color;
+    }
+  }
+
+  .personal-img {
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+
+    img {
+      max-width: 350px;
+      width: 100%;
+      border-radius: 50%;
+      border: 1px solid gray;
+      padding: 5px;
+      @include mobile-view {
+        max-width: 100%;
+      }
+    }
 
   }
 }
 
+.cards-design {
+  margin-top: 5%;
+  max-width: 1100px;
+
+  .row {
+    display: flex;
+    justify-content: space-between;
+
+    .card {
+      width: 55%;
+      padding: 40px;
+      border-radius: 10px;
+      border: none;
+      overflow: hidden;
+      position: relative;
+      margin: 0 auto;
+      background-color: $primary-color;
+      clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+      @include tablet-view{
+        width: 85%;
+      }
+      @include mobile-view {
+        width: 80%;
+      }
+
+      img {
+        filter: brightness(0) saturate(100%) invert(100%) sepia(3%) saturate(1%) hue-rotate(327deg) brightness(105%) contrast(100%);
+        width: 50px;
+        display: block;
+        margin: 0 auto;
+      }
+    }
+
+    .text {
+      margin-top: 10px;
+      text-align: center;
+
+      h2 {
+        color: $secondary-color;
+        @include mobile-view{
+          font-size: 18.5px;
+        }
+      }
+
+      p {
+        color: $secondary-color;
+        font-size: 13.28px;
+        @include mobile-view{
+          font-size: 12px;
+        }
+      }
+    }
+
+  }
+
+
+}
+
+
 .slider {
-  margin-top: 8%;
+  margin-top: 13%;
   max-width: 1100px;
 
   .logos {
@@ -185,6 +273,54 @@
       transform: translateX(-100%);
     }
   }
+}
 
 
+.projects {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+
+  .gallery {
+    --size: 100px;
+    display: grid;
+    grid-template-columns: repeat(6, var(--size));
+    grid-auto-rows: var(--size);
+    margin-bottom: var(--size);
+    place-items: start center;
+    gap: 5px;
+
+    &:has(:hover) img:not(:hover),
+    &:has(:focus) img:not(:focus) {
+      filter: brightness(0.5) contrast(0.5);
+    }
+
+    & img {
+      object-fit: cover;
+      width: calc(var(--size) * 2);
+      height: calc(var(--size) * 2);
+      clip-path: path("M90,10 C100,0 100,0 110,10 190,90 190,90 190,90 200,100 200,100 190,110 190,110 110,190 110,190 100,200 100,200 90,190 90,190 10,110 10,110 0,100 0,100 10,90Z");
+      transition: clip-path 0.25s, filter 0.75s;
+      grid-column: auto / span 2;
+      border-radius: 5px;
+
+      &:nth-child(5n - 1) {
+        grid-column: 2 / span 2
+      }
+
+      &:hover,
+      &:focus {
+        clip-path: path("M0,0 C0,0 200,0 200,0 200,0 200,100 200,100 200,100 200,200 200,200 200,200 100,200 100,200 100,200 100,200 0,200 0,200 0,100 0,100 0,100 0,100 0,100Z");
+        z-index: 1;
+        transition: clip-path 0.25s, filter 0.25s;
+      }
+
+      &:focus {
+        outline: 1px dashed black;
+        outline-offset: -5px;
+      }
+    }
+  }
 }
