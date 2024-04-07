@@ -1,4 +1,12 @@
 @import "../../styles/index";
+.container {
+  opacity: 0;
+}
+
+.container.visible {
+  opacity: 1;
+  transition: opacity 1s ease-in-out;
+}
 
 .bg-image{
   background-image: url('../../assets/img/Foto3.png');
@@ -116,20 +124,46 @@
   .personal-img {
     display: flex;
     justify-content: center;
+    align-items: center;
     margin: 0 auto;
+
+    .spinner-border {
+      color: $primary-color;
+      position: absolute;
+      z-index: 1;
+      width: 350px;
+      height: 350px;
+      margin: 0;
+      @include mobile-view{
+        width: 270px;
+        height: 270px;
+      }
+    }
+
+    .spinner-border {
+      --bs-spinner-width: 2rem;
+      --bs-spinner-height: 2rem;
+      --bs-spinner-vertical-align: -0.125em;
+      --bs-spinner-border-width: 0.25em;
+      --bs-spinner-animation-speed: 1.75s;
+      --bs-spinner-animation-name: spinner-border;
+      border: var(--bs-spinner-border-width) solid currentcolor;
+      border-right-color: transparent;
+    }
 
     img {
       max-width: 350px;
       width: 100%;
       border-radius: 50%;
-      border: 1px solid gray;
-      padding: 5px;
-      @include mobile-view {
-        max-width: 100%;
+      padding: 7px;
+      position: relative;
+      @include mobile-view{
+        max-width: 270px;
       }
-    }
 
+    }
   }
+
 }
 
 .cards-design {
@@ -422,21 +456,22 @@
   }
 }
 
-.lujta{
-  @include mobile-view{
-    padding: 12px;
-  }
-}
 .contactus {
   margin-top: 5%;
   z-index: 12;
   max-width: 1100px;
   width: 100%;
   background: #fff;
-  border-radius: 12px;
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
   @include mobile-view{
+    padding: 25px;
+  }
 
+  .vl {
+    border-left: 3px solid $primary-color;
+    height: 300px;
+    position: absolute;
+    left: 36%;
+    margin-top: 35px;
   }
   .col-md-8{
     @include mobile-view{
@@ -450,6 +485,8 @@
   }
   .content {
     padding: 25px 20px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
+    border-radius: 12px;
     @include mobile-view{
       padding: 25px 30px;
     }
@@ -545,8 +582,6 @@
       color: $primary-color;
       background: #fff;
     }
-
-
 
     .message-box {
       min-height: 100px;

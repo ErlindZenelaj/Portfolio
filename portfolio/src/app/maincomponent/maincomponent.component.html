@@ -20,34 +20,36 @@
 
 </div>
 
-  <div class="container home" id="home">
-    <div class="about-text">
-      <span>About Me:</span>
-    </div>
-    <div class="row reverse">
-      <div class="col-md-7 col-12 personal-text">
-        <p>
-          I am a driven and enthusiastic intern fascinated by the endless possibilities of programming and technology.
-          Currently immersed in [SunnyHill - Tech], I am eager to bridge the gap between theory and
-          practice through hands-on experience. Throughout my academic journey, I've cultivated a strong foundation in
-          various programming languages and technologies, and I'm eager to continue my journey of exploration and growth
-          in the professional realm.
-        </p>
-        <div class="info">
-          <h3><span>Job: </span>Web Developer</h3>
-          <h3><span>Citizenship:</span> Kosovo</h3>
-          <h3><span>Residence:</span> Prishtina</h3>
-          <h3><span>E-mail:</span> erlind880&#64;gmail.com</h3>
-          <h3><span>Number:</span> +38343726774</h3>
-        </div>
+<div class="container home" id="home" >
+  <div class="about-text">
+    <span>About Me:</span>
+  </div>
+  <div class="row reverse">
+    <div class="col-md-7 col-12 personal-text">
+      <p>
+        I am a driven and enthusiastic intern fascinated by the endless possibilities of programming and technology.
+        Currently immersed in [SunnyHill - Tech], I am eager to bridge the gap between theory and
+        practice through hands-on experience. Throughout my academic journey, I've cultivated a strong foundation in
+        various programming languages and technologies, and I'm eager to continue my journey of exploration and growth
+        in the professional realm.
+      </p>
+      <div class="info">
+        <h3><span>Job: </span>Web Developer</h3>
+        <h3><span>Citizenship:</span> Kosovo</h3>
+        <h3><span>Residence:</span> Prishtina</h3>
       </div>
-      <div class="col-md-5 col-12">
-        <div class="personal-img">
-          <img alt="Lindi" src="assets/img/lindi.png">
+    </div>
+    <div class="col-md-5 col-12">
+      <div class="personal-img">
+        <div class="spinner-border" role="status">
+          <span class="visually-hidden">Loading...</span>
         </div>
+        <img alt="Lindi" src="assets/img/lindi.png">
       </div>
     </div>
   </div>
+</div>
+
 
 <div class="container cards-design">
   <div class="row">
@@ -85,98 +87,26 @@
   <div class="about-text">
     <span>Project's:</span>
   </div>
-<div class="row">
-  <div class="col-lg-4 col-md-6">
-    <div class="card__collection clear-fix">
-      <div class="cards cards--two">
-        <img src="assets/img/financial1.png" class="img-responsive" alt="Cards Image">
-        <span class="cards--two__rect"></span>
-        <p>FinancialApp</p>
-        <div class="cards__list">
-          <img src="assets/img/html.png" alt="">
-          <img src="assets/img/css.png" alt="">
-          <img src="assets/img/dotnet.png" alt="">
-          <img src="assets/img/sql.png" alt="">
+  <div class="row">
+    <div class="col-lg-4 col-md-6" *ngFor="let project of projects">
+      <div class="card__collection clear-fix">
+        <div class="cards cards--two">
+          <img [src]="project.image" class="img-responsive" alt="Cards Image">
+          <span class="cards--two__rect"></span>
+          <p>{{ project.name }}</p>
+          <div class="cards__list">
+            <img *ngFor="let tech of project.technologies" [src]="'assets/img/' + tech.toLowerCase() + '.png'" alt="">
+          </div>
         </div>
-      </div>
-    </div>
-  </div>
-  <div class="col-lg-4 col-md-6">
-    <div class="card__collection clear-fix">
-      <div class="cards cards--two">
-        <img src="assets/img/ballkani.png" class="img-responsive" alt="Cards Image">
-        <span class="cards--two__rect"></span>
-        <p>Ballkani Fc</p>
-        <div class="cards__list">
-          <img src="assets/img/html.png" alt="">
-          <img src="assets/img/css.png" alt="">
-          <img src="assets/img/angular.png" alt="">
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="col-lg-4 col-md-6">
-    <div class="card__collection clear-fix">
-      <div class="cards cards--two">
-        <img src="assets/img/movierg.png" class="img-responsive" alt="Cards Image">
-        <span class="cards--two__rect"></span>
-        <p>RG Movies</p>
-        <div class="cards__list">
-          <img src="assets/img/html.png" alt="">
-          <img src="assets/img/css.png" alt="">
-          <img src="assets/img/js.png" alt="">
-          <img src="assets/img/php.svg" alt="">
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="col-lg-4 col-md-6">
-    <div class="card__collection clear-fix">
-      <div class="cards cards--two">
-        <img src="assets/img/carpainting.png" class="img-responsive" alt="Cards Image">
-        <span class="cards--two__rect"></span>
-        <p>Car Painting</p>
-        <div class="cards__list">
-          <img src="assets/img/html.png" alt="">
-          <img src="assets/img/css.png" alt="">
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="col-lg-4 col-md-6">
-    <div class="card__collection clear-fix">
-      <div class="cards cards--two">
-        <img src="assets/img/unikkatil.png" class="img-responsive" alt="Cards Image">
-        <span class="cards--two__rect"></span>
-        <p>UnikMusic</p>
-        <div class="cards__list">
-          <img src="assets/img/html.png" alt="">
-          <img src="assets/img/css.png" alt="">
-          <img src="assets/img/js.png" alt="">
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="col-lg-4 col-md-6">
-    <div class="card__collection clear-fix">
-      <div class="cards cards--two">
-        <img src="assets/img/mealproject.png" class="img-responsive" alt="Cards Image">
-        <span class="cards--two__rect"></span>
-        <p>Meal</p>
-        <div class="cards__list">
-          <img src="assets/img/html.png" alt="">
-          <img src="assets/img/css.png" alt="">
-          <img src="assets/img/vue.png" alt="">
-        <div>
       </div>
     </div>
   </div>
 </div>
-</div>
 
-
-<div class="container">
-  <div class="contactus">
+<div class="container contactus">
+  <div class="about-text">
+    <span>Contact's:</span>
+  </div>
     <div class="row content">
       <div class="col-md-4">
         <div class="row">
@@ -202,6 +132,7 @@
       </div>
       <div class="col-md-8">
         <form (ngSubmit)="onSubmit()" [formGroup]="contactForm">
+          <div class="vl"></div>
           <div class="topic">Send us a message</div>
           <div class="input-box">
             <input formControlName="name" required type="text">
@@ -232,6 +163,6 @@
           </div>
         </form>
       </div>
-    </div>
   </div>
 </div>
+

@@ -70,5 +70,37 @@ export class MaincomponentComponent implements OnInit , AfterViewInit{
     'assets/img/dotnet.png',
     'assets/img/sql.png'
   ];
+  projects = [
+    {
+      name: 'FinancialApp',
+      image: 'assets/img/financial1.png',
+      technologies: ['HTML', 'CSS', '.NET', 'SQL']
+    },
+    {
+      name: 'Ballkani Fc',
+      image: 'assets/img/ballkani.png',
+      technologies: ['HTML', 'CSS', 'Angular']
+    },
+    {
+      name: 'RG Movies',
+      image: 'assets/img/movierg.png',
+      technologies: ['HTML', 'CSS', 'JavaScript', 'PHP']
+    },
+    {
+      name: 'Car Painting',
+      image: 'assets/img/carpainting.png',
+      technologies: ['HTML', 'CSS']
+    },
+    {
+      name: 'UnikMusic',
+      image: 'assets/img/unikkatil.png',
+      technologies: ['HTML', 'CSS', 'JavaScript']
+    },
+    {
+      name: 'Meal',
+      image: 'assets/img/mealproject.png',
+      technologies: ['HTML', 'CSS', 'Vue']
+    }
+  ];
 }
 register();

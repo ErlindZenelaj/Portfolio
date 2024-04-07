@@ -7,6 +7,13 @@
   max-width: 1100px;
 }
 
+.navbar-brand{
+  img{
+    width: 100px;
+    height: 150px;
+    object-fit: none;
+  }
+}
 
 nav{
   background-color: transparent;
