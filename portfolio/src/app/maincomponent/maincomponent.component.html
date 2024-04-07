@@ -14,13 +14,14 @@
     </ul>
   </div>
 
-  <div class="container mouse">
+  <div class="container mouse" #mouse (click)="scrollToBottom()">
     <img class="animate__animated animate__shakeY filtered-mouse" src="assets/img/mouse-wireless-pc-svgrepo-com.svg" alt="" width="50">
   </div>
 
+
 </div>
 
-<div class="container home" id="home"  >
+<div class="container home"  data-aos="fade-up" data-aos-duration="1000">
   <div class="about-text">
     <span>About Me:</span>
   </div>
@@ -53,8 +54,10 @@
 
 <div class="container cards-design">
   <div class="row">
-    @for (card of cards; track $index){
-    <div class="col-md-3 col-6">
+    @for (card of cards; track card; let i = $index){
+    <div class="col-md-3 col-6"
+         data-aos="fade-up"
+         [attr.data-aos-duration]="(i + 1) * 500">
       <div class="card">
         <img alt="" [src]="card.icon">
       </div>
@@ -68,7 +71,7 @@
 </div>
 
 
-<div class="container slider">
+<div class="container slider" data-aos="fade-up" data-aos-duration="1000">
     <div class="about-text">
       <span>Technology's:</span>
     </div>
@@ -83,12 +86,14 @@
     </div>
 </div>
 
-<div class="container projects">
+<div class="container projects" data-aos="fade-up">
   <div class="about-text">
     <span>Project's:</span>
   </div>
   <div class="row">
-    <div class="col-lg-4 col-md-6" *ngFor="let project of projects">
+    <div class="col-lg-4 col-md-6" *ngFor="let project of projects; let i = index"
+         [attr.data-aos]="i % 2 === 0 ? 'fade-up' : 'fade-up'"
+         [attr.data-aos-delay]="i * 200">
       <div class="card__collection clear-fix">
         <div class="cards cards--two">
           <img [src]="project.image" class="img-responsive" alt="Cards Image">
@@ -103,7 +108,8 @@
   </div>
 </div>
 
-<div class="container contactus">
+
+<div class="container contactus" data-aos="fade-up" data-aos-duration="1000">
   <div class="about-text">
     <span>Contact's:</span>
   </div>
@@ -132,7 +138,6 @@
       </div>
       <div class="col-md-8">
         <form (ngSubmit)="onSubmit()" [formGroup]="contactForm">
-          <div class="vl"></div>
           <div class="topic">Send us a message</div>
           <div class="input-box">
             <input formControlName="name" required type="text">
@@ -151,7 +156,7 @@
             </small>
           </div>
           <div class="message-box">
-            <textarea ></textarea>
+            <textarea formControlName="message" required></textarea>
             <label>Enter your message</label>
             <small *ngIf="contactForm.get('message')?.errors?.['required'] && contactForm.get('message')?.touched"
                    class="error-box">

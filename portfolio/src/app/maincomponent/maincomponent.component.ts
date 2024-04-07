@@ -1,9 +1,10 @@
-import {AfterViewInit, Component, CUSTOM_ELEMENTS_SCHEMA, ElementRef, OnInit} from '@angular/core';
+import {AfterViewInit, Component, CUSTOM_ELEMENTS_SCHEMA, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {HeaderComponent} from "../header/header.component";
 import {CommonModule} from "@angular/common";
-import {Router, RouterLink} from "@angular/router";
+import { RouterLink} from "@angular/router";
 import { register } from 'swiper/element/bundle';
 import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from "@angular/forms";
+import AOS from 'aos';
 
 @Component({
   selector: 'app-maincomponent',
@@ -20,17 +21,57 @@ import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from "@angular/
 
 })
 export class MaincomponentComponent implements OnInit , AfterViewInit{
-  title = 'portfolio';
+  @ViewChild('mouse') mouseElement!: ElementRef;
+  contactForm: FormGroup;
   showMessage = true;
 
-  contactForm: FormGroup;
 
-  onSubmit() {
-    if (this.contactForm.valid) {
-      console.log(this.contactForm.value);
-    } else {
-      this.contactForm.markAllAsTouched();
-    }
+  ngOnInit() {
+    setInterval(() => {
+      this.showMessage = !this.showMessage;
+    }, 2500);
+  }
+
+  ngAfterViewInit() {
+    AOS.init({
+      disable: false,
+      startEvent: 'DOMContentLoaded',
+      initClassName: 'aos-init',
+      animatedClassName: 'aos-animate',
+      useClassNames: false,
+      disableMutationObserver: false,
+      debounceDelay: 50,
+      throttleDelay: 99,
+
+      offset: 120,
+      delay: 0,
+      duration: 400,
+      easing: 'ease',
+      once: false,
+      mirror: false,
+      anchorPlacement: 'top-bottom',
+    });
+    const logosSlide = this.elementRef.nativeElement.querySelector('.logos-slide');
+    const copy = logosSlide.cloneNode(true);
+    this.elementRef.nativeElement.querySelector('.logos').appendChild(copy);
+  }
+
+
+  scrollToBottom() {
+    const windowHeight = window.innerHeight;
+    const scrollHeight = document.body.scrollHeight;
+    const distanceToScroll = scrollHeight - windowHeight;
+    const scrollStep = distanceToScroll / 100;
+
+    let scrollCount = 0;
+    const scrollInterval = setInterval(() => {
+      if (scrollCount < distanceToScroll) {
+        window.scrollBy(0, scrollStep);
+        scrollCount += scrollStep;
+      } else {
+        clearInterval(scrollInterval);
+      }
+    }, 120);
   }
 
   constructor(private fb: FormBuilder, private elementRef: ElementRef) {
@@ -49,18 +90,15 @@ export class MaincomponentComponent implements OnInit , AfterViewInit{
     { icon: 'assets/img/rocket.svg', title: 'Dynamic', description: 'Websites don\'t have to be static, I love making pages come to life.' }
   ];
 
-  ngOnInit() {
-    setInterval(() => {
-      this.showMessage = !this.showMessage;
-    }, 2500);
-  }
 
-  ngAfterViewInit() {
-    const logosSlide = this.elementRef.nativeElement.querySelector('.logos-slide');
-    const copy = logosSlide.cloneNode(true);
-    this.elementRef.nativeElement.querySelector('.logos').appendChild(copy);
-  }
 
+  onSubmit() {
+    if (this.contactForm.valid) {
+      console.log(this.contactForm.value);
+    } else {
+      this.contactForm.markAllAsTouched();
+    }
+  }
 
   iconss: string[] = [
     'assets/img/html.png',
