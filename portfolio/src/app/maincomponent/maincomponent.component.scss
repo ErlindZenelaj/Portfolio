@@ -1,13 +1,4 @@
 @import "../../styles/index";
-.container {
-  opacity: 0;
-}
-
-.container.visible {
-  opacity: 1;
-  transition: opacity 1s ease-in-out;
-}
-
 .bg-image{
   background-image: url('../../assets/img/Foto3.png');
   background-size: cover;
