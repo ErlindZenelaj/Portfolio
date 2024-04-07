@@ -220,7 +220,7 @@
 
 
 .slider {
-  margin-top: 13%;
+  margin-top: 5%;
   max-width: 1100px;
 
   .logos {
@@ -273,51 +273,166 @@
 }
 
 
-.projects {
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 0 auto;
-
-  .gallery {
-    --size: 100px;
-    display: grid;
-    grid-template-columns: repeat(6, var(--size));
-    grid-auto-rows: var(--size);
-    margin-bottom: var(--size);
-    place-items: start center;
-    gap: 5px;
-
-    &:has(:hover) img:not(:hover),
-    &:has(:focus) img:not(:focus) {
-      filter: brightness(0.5) contrast(0.5);
-    }
-
-    & img {
-      object-fit: cover;
-      width: calc(var(--size) * 2);
-      height: calc(var(--size) * 2);
-      clip-path: path("M90,10 C100,0 100,0 110,10 190,90 190,90 190,90 200,100 200,100 190,110 190,110 110,190 110,190 100,200 100,200 90,190 90,190 10,110 10,110 0,100 0,100 10,90Z");
-      transition: clip-path 0.25s, filter 0.75s;
-      grid-column: auto / span 2;
-      border-radius: 5px;
-
-      &:nth-child(5n - 1) {
-        grid-column: 2 / span 2
-      }
-
-      &:hover,
-      &:focus {
-        clip-path: path("M0,0 C0,0 200,0 200,0 200,0 200,100 200,100 200,100 200,200 200,200 200,200 100,200 100,200 100,200 100,200 0,200 0,200 0,100 0,100 0,100 0,100 0,100Z");
-        z-index: 1;
-        transition: clip-path 0.25s, filter 0.25s;
-      }
-
-      &:focus {
-        outline: 1px dashed black;
-        outline-offset: -5px;
-      }
-    }
+.projects{
+  max-width: 1400px;
+  .img-responsive {
+    max-width: 100%;
+    object-fit: cover;
   }
+
+
+  $color-box-2 : rgba(34, 65, 154, .8);
+  $color-box-3 : $primary-color;
+  $color-box-5 : $primary-color;
+
+  .card__collection {
+    position: relative;
+    display: block;
+    padding: 10px;
+    font-family: 'Do Hyeon', sans-serif;
+    overflow: hidden;
+
+    .cards {
+      width: 100%;
+      height: 100%;
+      display: block;
+      background-size: cover;
+      float: left;
+      border-radius: 15px;
+      position: relative;
+      overflow: hidden;
+      background-position: center;
+      margin: 10px;
+    }
+
+    .cards--two {
+      position: relative;
+      backface-visibility: hidden;
+
+
+      p {
+        position: absolute;
+        top: 60%;
+        left: -100%;
+        text-transform: capitalize;
+        color: #fff;
+        font-size: 20px;
+        z-index: 8;
+        transition: all .6s ease;
+      }
+      .cards__list {
+        list-style: none;
+        position: absolute;
+        bottom: 0;
+        left: 10px;
+        z-index: 9;
+        display: none;
+        transition: top .6s ease-in-out;
+
+        img {
+          width: 25px;
+          font-size: 16px;
+          margin: 7px;
+          color: $secondary-color;
+
+          &:nth-child(2) {
+            transition-delay: .2s;
+          }
+
+          &:nth-child(3) {
+            transition-delay: .3s;
+          }
+
+          &:nth-child(4) {
+            transition-delay: .4s;
+          }
+        }
+      }
+
+
+      &:hover {
+        .cards__list{
+          display: flex;
+        }
+
+        p {
+          left: 8%;
+        }
+
+        img {
+          transform: translateY(-15px);
+        }
+
+        .cards--two__rect {
+          top: 75%;
+
+          &:before {
+            transform: translateY(15px);
+          }
+        }
+
+      }
+
+      img {
+        transition: all .2s ease;
+      }
+
+      &__tri {
+        border-top: 220px solid transparent;
+        border-bottom: 190px solid transparent;
+        border-right: 288px solid #fff;
+        opacity: .9;
+        position: absolute;
+        display: block;
+        top: 0;
+        right: -100%;
+        transition: all .3s ease-in-out;
+
+        &:before {
+          border-top: 220px solid transparent;
+          border-bottom: 190px solid transparent;
+          border-right: 288px solid $color-box-3;
+          position: absolute;
+          content: '';
+          display: block;
+          top: -220px;
+          right: -612px;
+          transition: all .3s ease-in-out;
+          transition-delay: .2s;
+        }
+      }
+
+      &__rect {
+        width: 800px;
+        height: 500px;
+        background: #fff;
+        display: block;
+        position: absolute;
+        top: 300%;
+        left: -50%;
+        transform: rotate(30deg);
+        z-index: 5;
+        opacity: 0.9;
+        transition: all 0.3s ease-in-out;
+
+        &:before {
+          content: '';
+          display: block;
+          width: 100%;
+          position: relative;
+          height: 100%;
+          background: $color-box-5;
+          transform: translateY(200px);
+          z-index: 2;
+          transition: all .3s ease-in-out;
+          transition-delay: .1s;
+        }
+      }
+
+    }
+
+  }
+
 }
+
+
