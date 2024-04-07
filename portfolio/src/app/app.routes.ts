@@ -1,10 +1,9 @@
 import { Routes } from '@angular/router';
-import {EducationComponent} from "./education/education.component";
 import {MaincomponentComponent} from "./maincomponent/maincomponent.component";
+import {FirstpageComponent} from "./firstpage/firstpage.component";
 
 export const routes: Routes = [
 
-  { path: '', title: '', component: MaincomponentComponent},
-  { path: '', title: '', component: MaincomponentComponent},
-  { path: 'education', title: '', component: EducationComponent},
+  { path: '', title: '', component: FirstpageComponent},
+  { path: 'main', title: '', component: MaincomponentComponent},
 ];

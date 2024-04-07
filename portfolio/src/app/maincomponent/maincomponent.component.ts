@@ -3,6 +3,7 @@ import {HeaderComponent} from "../header/header.component";
 import {CommonModule} from "@angular/common";
 import {Router, RouterLink} from "@angular/router";
 import { register } from 'swiper/element/bundle';
+import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from "@angular/forms";
 
 @Component({
   selector: 'app-maincomponent',
@@ -11,6 +12,7 @@ import { register } from 'swiper/element/bundle';
     HeaderComponent,
     CommonModule,
     RouterLink,
+    ReactiveFormsModule,
   ],
   templateUrl: './maincomponent.component.html',
   styleUrl: './maincomponent.component.scss',
@@ -21,9 +23,24 @@ export class MaincomponentComponent implements OnInit , AfterViewInit{
   title = 'portfolio';
   showMessage = true;
 
+  contactForm: FormGroup;
 
-  constructor(private router: Router, private elementRef: ElementRef) {
+  onSubmit() {
+    if (this.contactForm.valid) {
+      console.log(this.contactForm.value);
+    } else {
+      this.contactForm.markAllAsTouched();
+    }
   }
+
+  constructor(private fb: FormBuilder, private elementRef: ElementRef) {
+    this.contactForm = this.fb.group({
+      name: ['', Validators.required],
+      subject: ['', Validators.required],
+      message: ['', Validators.required]
+    });
+  }
+
 
   cards = [
     { icon: 'assets/img/speed.svg', title: 'Fast', description: 'Fast load times and lag free interaction, my highest priority.' },
@@ -42,19 +59,6 @@ export class MaincomponentComponent implements OnInit , AfterViewInit{
     const logosSlide = this.elementRef.nativeElement.querySelector('.logos-slide');
     const copy = logosSlide.cloneNode(true);
     this.elementRef.nativeElement.querySelector('.logos').appendChild(copy);
-  }
-
-  isAnimating: boolean = false;
-
-  navigateToHome() {
-    const homeSection = document.getElementById('home');
-    if (homeSection) {
-      homeSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
-    this.isAnimating = true;
-    setTimeout(() => {
-      this.isAnimating = false;
-    }, 1000);
   }
 
 

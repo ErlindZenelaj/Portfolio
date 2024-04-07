@@ -10,43 +10,15 @@
   height: 1050px;
 
 
-  .start-page {
-    position: relative;
-    top: 20%;
-    text-align: center;
-
-    .typewriter {
-      h2 {
-        color: $white-color;
-        overflow: hidden;
-        border-right: 3.6px solid $third-color;
-        white-space: nowrap;
-        margin: 0 auto;
-        letter-spacing: 3.6px;
-        animation: typing 5s steps(50, end) infinite;
-        max-width: 340px;
-        text-shadow: 1px 1px 2px black;
-        @include mobile-view{
-          max-width: 500px;
-          animation: typing 2.5s steps(20, end) infinite;
-
-        }
-      }
-      .second-paragraph {
-        max-width: 280px;
-        @include mobile-view{
-          max-width: 280px;
-        }
-      }
-    }
-  }
-
   .logo {
     position: absolute;
     top: 44%;
     right: 0;
     margin-top: 10px;
     margin-right: 10px;
+    @include mobile-view{
+      display: none;
+    }
 
     .icons {
       list-style: none;
@@ -56,7 +28,7 @@
       margin-right: 20px;
 
       i {
-        font-size: 40px;
+        font-size: 50px;
         color: $white-color;
       }
     }
@@ -222,6 +194,7 @@
 .slider {
   margin-top: 5%;
   max-width: 1100px;
+  padding: 0;
 
   .logos {
     overflow: hidden;
@@ -274,17 +247,26 @@
 
 
 .projects{
-  max-width: 1400px;
+  margin-top: 5%;
+  max-width: 1100px;
+  padding: 0;
+  @include mobile-view{
+    padding: 0 12px;
+  }
+
   .img-responsive {
     max-width: 100%;
     object-fit: cover;
   }
 
-
   $color-box-2 : rgba(34, 65, 154, .8);
   $color-box-3 : $primary-color;
   $color-box-5 : $primary-color;
 
+  .col-lg-4,
+  .col-md-6{
+    padding: 0;
+  }
   .card__collection {
     position: relative;
     display: block;
@@ -292,6 +274,40 @@
     font-family: 'Do Hyeon', sans-serif;
     overflow: hidden;
 
+    .cards__list {
+      position: absolute;
+      bottom: 0;
+      left: 10px;
+      z-index: 9;
+      transition: opacity .6s ease-in-out;
+      display: flex;
+      opacity: 0;
+    }
+
+    .cards__list img {
+      width: 25px;
+      font-size: 16px;
+      margin: 7px;
+      color: $secondary-color;
+      transition: transform 0.5s ease;
+    }
+
+    .cards__list img:nth-child(2) {
+      transition-delay: 0.2s;
+    }
+
+    .cards__list img:nth-child(3) {
+      transition-delay: 0.3s;
+    }
+
+    .cards__list img:nth-child(4) {
+      transition-delay: 0.4s;
+    }
+
+
+    .cards--two:hover .cards__list {
+      opacity: 1;
+    }
     .cards {
       width: 100%;
       height: 100%;
@@ -303,6 +319,9 @@
       overflow: hidden;
       background-position: center;
       margin: 10px;
+      @include mobile-view{
+        margin: 0;
+      }
     }
 
     .cards--two {
@@ -318,45 +337,14 @@
         color: #fff;
         font-size: 20px;
         z-index: 8;
-        transition: all .6s ease;
+        transition: all .6s ease-in-out;
+
       }
-      .cards__list {
-        list-style: none;
-        position: absolute;
-        bottom: 0;
-        left: 10px;
-        z-index: 9;
-        display: none;
-        transition: top .6s ease-in-out;
-
-        img {
-          width: 25px;
-          font-size: 16px;
-          margin: 7px;
-          color: $secondary-color;
-
-          &:nth-child(2) {
-            transition-delay: .2s;
-          }
-
-          &:nth-child(3) {
-            transition-delay: .3s;
-          }
-
-          &:nth-child(4) {
-            transition-delay: .4s;
-          }
-        }
-      }
-
 
       &:hover {
-        .cards__list{
-          display: flex;
-        }
 
         p {
-          left: 8%;
+          left: 5%;
         }
 
         img {
@@ -403,7 +391,7 @@
       }
 
       &__rect {
-        width: 800px;
+        width: 700px;
         height: 500px;
         background: #fff;
         display: block;
@@ -432,7 +420,202 @@
     }
 
   }
-
 }
 
+.lujta{
+  @include mobile-view{
+    padding: 12px;
+  }
+}
+.contactus {
+  margin-top: 5%;
+  z-index: 12;
+  max-width: 1100px;
+  width: 100%;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
+  @include mobile-view{
+
+  }
+  .col-md-8{
+    @include mobile-view{
+      padding: 0;
+    }
+  }
+  .col-md-3{
+    @include mobile-view{
+      padding: 0;
+    }
+  }
+  .content {
+    padding: 25px 20px;
+    @include mobile-view{
+      padding: 25px 30px;
+    }
+
+    .box{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      margin-top: 45px;
+      @include mobile-view{
+        margin-top: 0;
+      }
+      .col-md-3{
+        width: 50%;
+      }
+      i{
+        display: flex;
+        justify-content: center;
+        font-size: 30px;
+        color: $primary-color;
+      }
+      h4{
+        display: flex;
+        justify-content: center;
+        font-weight: 600;
+        margin-top: 8px;
+        margin-bottom: 0;
+      }
+      p{
+        display: flex;
+        justify-content: center;
+        color :$secondary-color;
+        font-size: 13.38px;
+      }
+    }
+
+    .topic {
+      font-size: 22px;
+      font-weight: 500;
+      color: $primary-color;
+    }
+
+    form {
+      width: 100%;
+      margin-right: 30px;
+      @include mobile-view{
+        margin-right: 0;
+      }
+    }
+
+    .input-box {
+      height: 50px;
+      width: 100%;
+      margin: 16px 0;
+      position: relative;
+    }
+
+    input {
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      border-radius: 6px;
+      font-size: 16px;
+      outline: none;
+      padding-left: 16px;
+      background: rgba(89, 193, 202, 0.25);
+      border: 2px solid transparent;
+      transition: all 0.3s ease;
+    }
+
+    .input-box input:focus,
+    .input-box input:valid {
+      border-color: $primary-color;
+      background-color: #fff;
+    }
+
+    .input-box label {
+      position: absolute;
+      left: 18px;
+      top: 50%;
+      color: #636c72;
+      font-size: 15px;
+      pointer-events: none;
+      transform: translateY(-50%);
+      transition: all 0.3s ease;
+    }
+
+    .input-box input:focus ~ label,
+    .input-box input:valid ~ label {
+      top: 0;
+      left: 12px;
+      color: $primary-color;
+      background: #fff;
+    }
+
+
+
+    .message-box {
+      min-height: 100px;
+      position: relative;
+       textarea {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        resize: none;
+         padding: 10px;
+        border: 2px solid transparent;
+        outline: none;
+        border-radius: 6px;
+        background: rgba(89, 193, 202, 0.25);
+        transition: all 0.3s ease;
+      }
+
+      textarea:focus {
+        border-color: $primary-color;
+        background-color: #fff;
+      }
+
+       label {
+        position: absolute;
+        font-size: 16px;
+        color: #636c72;
+        left: 18px;
+        top: 6px;
+        pointer-events: none;
+        transition: all 0.3s ease;
+      }
+      textarea:focus ~ label {
+        left: 12px;
+        top: -10px;
+        color: $primary-color;
+        font-size: 14px;
+        background: #fff;
+      }
+    }
+
+
+    .input-box input[type="submit"] {
+      color: #fff;
+      background: $primary-color;
+      padding-left: 0;
+      font-size: 18px;
+      font-weight: 500;
+      cursor: pointer;
+      letter-spacing: 1px;
+      transition: all 0.3s ease;
+    }
+
+    .input-box input[type="submit"]:hover {
+      background-color: $primary-color;
+    }
+  }
+  .error{
+    position: absolute;
+    font-size: 12px;
+    top: 50px;
+    color: red;
+  }
+  .error-box{
+    position: absolute;
+    font-size: 12px;
+    top: 100px;
+    color: red;
+  }
+
+
+}
 
