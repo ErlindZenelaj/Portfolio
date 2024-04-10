@@ -26,7 +26,7 @@
     <span>About Me:</span>
   </div>
   <div class="row reverse">
-    <div class="col-md-7 col-12 personal-text">
+    <div class="col-lg-7 col-md-12 col-12  personal-text">
       <p>
         I am a driven and enthusiastic intern fascinated by the endless possibilities of programming and technology.
         Currently immersed in [SunnyHill - Tech], I am eager to bridge the gap between theory and
@@ -40,7 +40,7 @@
         <h3><span>Residence:</span> Prishtina</h3>
       </div>
     </div>
-    <div class="col-md-5 col-12">
+    <div class="col-lg-5 col-md-12 col-12">
       <div class="personal-img">
         <div class="spinner-border" role="status">
           <span class="visually-hidden">Loading...</span>
@@ -90,8 +90,9 @@
   <div class="about-text">
     <span>Project's:</span>
   </div>
-  <div class="row">
-    <div class="col-lg-4 col-md-6" *ngFor="let project of projects; let i = index"
+  <div class="row boxes">
+    @for(project of projects; track project; let i = $index){
+    <div class="col-lg-4 col-md-6"
          [attr.data-aos]="i % 2 === 0 ? 'fade-up' : 'fade-up'"
          [attr.data-aos-delay]="i * 200">
       <div class="card__collection clear-fix">
@@ -100,11 +101,14 @@
           <span class="cards--two__rect"></span>
           <p>{{ project.name }}</p>
           <div class="cards__list">
-            <img *ngFor="let tech of project.technologies" [src]="'assets/img/' + tech.toLowerCase() + '.png'" alt="">
+            @for (tech of project.technologies; track tech){
+            <img [src]="'assets/img/' + tech.toLowerCase() + '.png'" alt="">
+            }
           </div>
         </div>
       </div>
     </div>
+    }
   </div>
 </div>
 
@@ -116,24 +120,19 @@
     <div class="row content">
       <div class="col-md-4">
         <div class="row">
+          @for(address of addresses; track addresses){
           <div class="box">
             <div class="col-md-3">
-              <i class="fa fa-brands fa-location-pin"></i>
-              <h4>Address</h4>
-              <p>Prishtina</p>
-            </div>
-            <div class="col-md-3">
-              <i class="fa fa-brands fa-phone"></i>
-              <h4>Number</h4>
-              <p>+38343726774</p>
-            </div>
-            <div class="col-md-3">
-              <i class="fa fa-brands fa-mail-bulk"></i>
-              <h4>Email</h4>
-              <p class="mb-0">erlind880&#64;gmail.com</p>
-              <p>erlindzenelaj&#64;hotmail.com</p>
+              <i class="fa fa-brands" [ngClass]="{
+            'fa-location-pin': address.label === 'Address',
+            'fa-phone': address.label === 'Number',
+            'fa-mail-bulk': address.label === 'Email'
+          }"></i>
+              <h4>{{ address.label }}</h4>
+              <p>{{ address.value }}</p>
             </div>
           </div>
+          }
         </div>
       </div>
       <div class="col-md-8">

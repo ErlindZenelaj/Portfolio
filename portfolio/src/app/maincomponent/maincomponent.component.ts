@@ -173,6 +173,12 @@ export class MaincomponentComponent implements OnInit , AfterViewInit{
     }
   ];
 
+  addresses = [
+    { label: 'Address', value: 'Prishtina' },
+    { label: 'Number', value: '+38343726774' },
+    { label: 'Email', value: 'erlind880@gmail.com, erlindzenelaj@hotmail.com' }
+  ];
+
 
 }
 register();
