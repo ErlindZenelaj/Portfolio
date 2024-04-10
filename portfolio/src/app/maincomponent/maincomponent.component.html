@@ -86,7 +86,7 @@
     </div>
 </div>
 
-<div class="container projects" data-aos="fade-up">
+<div class="container projects" data-aos="fade-up" data-aos-duration="2000">
   <div class="about-text">
     <span>Project's:</span>
   </div>
@@ -109,7 +109,7 @@
 </div>
 
 
-<div class="container contactus" data-aos="fade-up" data-aos-duration="1000">
+<div class="container contactus" data-aos="fade-up" data-aos-duration="2000">
   <div class="about-text">
     <span>Contact's:</span>
   </div>
@@ -137,7 +137,7 @@
         </div>
       </div>
       <div class="col-md-8">
-        <form (ngSubmit)="onSubmit()" [formGroup]="contactForm">
+        <form (ngSubmit)="onSubmit($event)" action="javascript:void(0)" [formGroup]="contactForm">
           <div class="topic">Send us a message</div>
           <div class="input-box">
             <input formControlName="name" required type="text">

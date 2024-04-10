@@ -86,7 +86,6 @@
   }
 
   .info {
-    gap: 15px;
     display: flex;
     flex-direction: column;
     @include mobile-view {
@@ -101,6 +100,7 @@
       letter-spacing: 2.5px;
       max-width: 400px;
       color: $secondary-color;
+      margin-bottom: 10px;
       @include mobile-view {
         margin: 0;
         letter-spacing: 1.3px;

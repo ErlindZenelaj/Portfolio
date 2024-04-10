@@ -5,6 +5,9 @@ import { RouterLink} from "@angular/router";
 import { register } from 'swiper/element/bundle';
 import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from "@angular/forms";
 import AOS from 'aos';
+import emailjs from '@emailjs/browser'
+import Swal from 'sweetalert2'
+
 
 @Component({
   selector: 'app-maincomponent',
@@ -24,6 +27,7 @@ export class MaincomponentComponent implements OnInit , AfterViewInit{
   @ViewChild('mouse') mouseElement!: ElementRef;
   contactForm: FormGroup;
   showMessage = true;
+
 
 
   ngOnInit() {
@@ -57,23 +61,6 @@ export class MaincomponentComponent implements OnInit , AfterViewInit{
   }
 
 
-  scrollToBottom() {
-    const windowHeight = window.innerHeight;
-    const scrollHeight = document.body.scrollHeight;
-    const distanceToScroll = scrollHeight - windowHeight;
-    const scrollStep = distanceToScroll / 100;
-
-    let scrollCount = 0;
-    const scrollInterval = setInterval(() => {
-      if (scrollCount < distanceToScroll) {
-        window.scrollBy(0, scrollStep);
-        scrollCount += scrollStep;
-      } else {
-        clearInterval(scrollInterval);
-      }
-    }, 120);
-  }
-
   constructor(private fb: FormBuilder, private elementRef: ElementRef) {
     this.contactForm = this.fb.group({
       name: ['', Validators.required],
@@ -81,6 +68,59 @@ export class MaincomponentComponent implements OnInit , AfterViewInit{
       message: ['', Validators.required]
     });
   }
+
+  async send() {
+    emailjs.init('4ZbHd-gHHL8t7uDGC');
+    let response = await emailjs.send("service_p1mlxvm", "template_6l4t5wf", {
+      name: this.contactForm.value.name,
+      subject: this.contactForm.value.subject,
+      message: this.contactForm.value.message,
+    });
+    await Swal.fire({
+      icon: "success",
+      title: "Your form has been send!",
+      showConfirmButton: false,
+      timer: 1500
+    });
+    this.contactForm.reset();
+  }
+
+  onSubmit(event: Event) {
+    event.preventDefault();
+    if (this.contactForm.valid) {
+      this.send();
+    } else {
+      this.contactForm.markAllAsTouched();
+    }
+  }
+
+
+
+
+  scrollToBottom() {
+    const windowHeight = window.innerHeight;
+    const scrollHeight = document.body.scrollHeight;
+    const distanceToScroll = scrollHeight - windowHeight;
+
+    const duration = 17000;
+    const steps = 200;
+    const scrollStep = distanceToScroll / steps;
+    const timePerStep = duration / steps;
+
+    let scrollCount = 0;
+    let currentTime = 0;
+
+    function animateScroll() {
+      if (scrollCount < distanceToScroll) {
+        window.scrollBy(0, scrollStep);
+        scrollCount += scrollStep;
+        setTimeout(animateScroll, timePerStep);
+      }
+    }
+
+    animateScroll();
+  }
+
 
 
   cards = [
@@ -91,14 +131,6 @@ export class MaincomponentComponent implements OnInit , AfterViewInit{
   ];
 
 
-
-  onSubmit() {
-    if (this.contactForm.valid) {
-      console.log(this.contactForm.value);
-    } else {
-      this.contactForm.markAllAsTouched();
-    }
-  }
 
   iconss: string[] = [
     'assets/img/html.png',
@@ -112,7 +144,7 @@ export class MaincomponentComponent implements OnInit , AfterViewInit{
     {
       name: 'FinancialApp',
       image: 'assets/img/financial1.png',
-      technologies: ['HTML', 'CSS', '.NET', 'SQL']
+      technologies: ['HTML', 'CSS', 'DOTNET', 'SQL']
     },
     {
       name: 'Ballkani Fc',
@@ -140,5 +172,7 @@ export class MaincomponentComponent implements OnInit , AfterViewInit{
       technologies: ['HTML', 'CSS', 'Vue']
     }
   ];
+
+
 }
 register();
